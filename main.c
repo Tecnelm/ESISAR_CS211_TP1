@@ -12,6 +12,7 @@ int main(){
 	affiche(tab1, n);
 
 
+
 	return 0;
 
 
