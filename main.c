@@ -9,13 +9,10 @@ int main(){
 	
 	int n = sizeof(ref)/sizeof(int);
 
-	affiche(tab1, n);
+	bulle(tab1,n);
 
-
-
+    affiche(tab1, n);
 	return 0;
-
-
 }
 
 

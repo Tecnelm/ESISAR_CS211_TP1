@@ -27,3 +27,26 @@ int compare(int* a, int *b, int n){
 }
 
 
+
+
+void swap(int* a, int* b) {
+    int c;
+    int n;
+    c = *a;
+    *a = *b;
+    *b = c;
+}
+int bulle(int* tab, int n) {
+    int o, i,l;
+    l = n;
+    while (l > 0) {
+        for (i = 0; i < l; i++) {
+            swap(&tab[i], &tab[i + 1]);
+            l--;
+            o++;
+        }
+    }
+    return(o);
+}
+
+
