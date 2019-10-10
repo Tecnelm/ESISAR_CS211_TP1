@@ -10,10 +10,12 @@ int main(){
 	int n = sizeof(ref)/sizeof(int);
 	int o;
 
-	o = bulle(tab1,n);
+	o = bulle(tab2,n);
 
-    affiche(tab1, n);
+    affiche(tab2, n);
     printf("%d\n",o);
+
+    compare(ref,tab1,n);
 
 
 	return 0;
