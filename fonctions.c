@@ -41,10 +41,12 @@ int bulle(int* tab, int n) {
     l = n;
     while (l > 0) {
         for (i = 0; i < l; i++) {
-            swap(&tab[i], &tab[i + 1]);
-            l--;
+            if(tab[i]>tab[i+1])
+                swap(&tab[i],&tab[i + 1]);
+
             o++;
         }
+        l--;
     }
     return(o);
 }
