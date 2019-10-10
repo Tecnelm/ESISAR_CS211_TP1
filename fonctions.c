@@ -25,5 +25,47 @@ int compare(int* a, int *b, int n){
 	printf("Comparison OK\n\n");
 	return -1;	
 }
+void swap(int* a, int* b)
+{
+int c = *a;
+*a = *b;
+*b = c;
+}
+
+/**
+ *
+ * on décompose la tableau en deux sous tableau la partie trié et la non trier
+ * on prend le premier élément du tableau non trié puis on parcours le tableau trié pour le mettre à la bonne position
+ * @param table  : tableau de valeur a trier
+ * @param size  : taille du tableai
+ * @return      : nombre d'opération réalisé
+ */
+int insertionSort(int* table,int size)
+{
+
+    int index;
+    int index2;
+    int varToSort;
+    int nbaction =0;
+    for (index = 1 ; index < size ; index++ )
+    {
+        varToSort = *(table+index);
+        index2 = 0;
+        while (varToSort > *(table+index2) && index2 <index) {
+            index2++;
+        }
+        if(index2  < index)
+        {
+            for(index2; index2 < index ; index2 ++)
+            {
+                swap(table+index2 , table+index);
+                nbaction++;
+            }
+        }
+    }
+    return nbaction;
+}
+
+
 
 

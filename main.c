@@ -8,8 +8,14 @@ int main(){
 	int tab3[] = {3,6,6,7,8,10,14,15,17,19,81,21,23,25,26,28,28,28,32,32,34,35,38,38,39,43,44,46,48,49,50,58,59,62,64,65,69,71,75,79,79,79,20,84,86,89,92,93,97,99};
 	
 	int n = sizeof(ref)/sizeof(int);
-
+    printf("%d\n",insertionSort(tab1,n));
+    insertionSort(tab3,n);
+    insertionSort(tab2,n);
 	affiche(tab1, n);
+
+	compare(tab1,ref,n);
+    compare(tab3,ref,n);
+    compare(tab2,ref,n);
 
 
 
