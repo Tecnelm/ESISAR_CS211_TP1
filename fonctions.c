@@ -25,5 +25,8 @@ int compare(int* a, int *b, int n){
 	printf("Comparison OK\n\n");
 	return -1;	
 }
+void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
+
+}
 
 
