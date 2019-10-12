@@ -54,5 +54,19 @@ void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
         *cnt ++ ;
     }
 }
+void mergeSort (int* tab, int* cnt){
+    int* tmp;
+    int left,mid,right;
+    int n = sizeof(tab)/sizeof(int);
 
+    tmp = malloc(sizeof(int)*n);
+
+
+
+    free(tmp);
+
+
+
+
+}
 
