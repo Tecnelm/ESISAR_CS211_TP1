@@ -9,20 +9,15 @@ int main(){
 
     int n = sizeof(ref)/sizeof(int);
 
-
-    int tempMerge[] = {
-	        2,8,7,10,11
-	};
-    int n1 = sizeof(tempMerge)/sizeof(int);
-
     int* tmp;
-    tmp =malloc(sizeof(int)*n1);
+    tmp =malloc(sizeof(int)*n);
     if( tmp== NULL)
         return  1;
     int a;
-    merge(tempMerge,tmp,0,2,4, &a);
+    mergeSort(tab1,tmp,&a,0,n-1);
 
-	affiche(tempMerge, n);
+
+	affiche(tab1, n);
 	free(tmp);
 
 
