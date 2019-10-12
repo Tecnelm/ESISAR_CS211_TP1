@@ -14,7 +14,7 @@ int main(){
     if( tmp== NULL)
         return  1;
     int a;
-    mergeSort(tab1,tmp,&a,0,n-1);
+    mergeSort(tab1,tmp,&a,0,n);
 
 
 	affiche(tab1, n);

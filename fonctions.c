@@ -59,9 +59,9 @@ void mergeSort (int* tab,int* tmp, int* cnt, int left, int right){
     int n = right-left;
 
     if(n%2 == 0)
-        midt = ((right-left/2)+1);
+        midt = (left+((n)/2));
     else
-        midt = (((right-left-1)/2)+1);
+        midt = (left+((n-1)/2));
 
     if(n >2)
     {
