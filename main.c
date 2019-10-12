@@ -16,7 +16,7 @@ int main(){
     int a;
     mergeSort(tab1,tmp,&a,0,n);
 
-
+    compare(tab1,ref,n);
 	affiche(tab1, n);
 	free(tmp);
 

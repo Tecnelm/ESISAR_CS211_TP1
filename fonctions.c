@@ -56,20 +56,16 @@ void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
 }
 void mergeSort (int* tab,int* tmp, int* cnt, int left, int right){
     int midt, leftt , rightt ;
-    int n = right-left;
 
-    if(n%2 == 0)
-        midt = (left+((n)/2));
-    else
-        midt = (left+((n-1)/2));
 
-    if(n >2)
+    if((right-left) >2)
     {
-        leftt = left; rightt = midt -1;
-        mergeSort(tab,tmp,cnt,leftt,rightt);
-        rightt= right; leftt= midt ;
-        mergeSort(tab,tmp,cnt,leftt,rightt);
-    }
-    merge(tab,tmp,left,midt,right,cnt);
-}
+        midt = (left+((right-left-1)/2));
 
+        mergeSort(tab,tmp,cnt,left,midt -1);
+        mergeSort(tab,tmp,cnt,midt,right);
+
+        merge(tab,tmp,left,midt,right,cnt);
+
+    }
+}
