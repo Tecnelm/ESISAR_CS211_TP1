@@ -30,7 +30,7 @@ void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
     int indextmp = left;
     int nbModify=0;
 
-    while (indexTab1 < mid && indexTab2 <right)
+    while (indexTab1 < mid && indexTab2 <=right)
     {
         if(tab[indexTab1]< tab[indexTab2])
         {
@@ -55,12 +55,12 @@ void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
     }
 }
 void mergeSort (int* tab,int* tmp, int* cnt, int left, int right){
-    int midt, leftt , rightt ;
+    int midt;
 
 
     if((right-left) >2)
     {
-        midt = (left+((right-left-1)/2));
+        midt = ((left+right)/2);
 
         mergeSort(tab,tmp,cnt,left,midt -1);
         mergeSort(tab,tmp,cnt,midt,right);
