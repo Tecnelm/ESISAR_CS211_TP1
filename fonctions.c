@@ -27,7 +27,7 @@ int compare(int *a, int *b, int n) {
 
 void swap(int *a, int *b) {
     int c;
-    int n;
+
     c = *a;
     *a = *b;
     *b = c;
