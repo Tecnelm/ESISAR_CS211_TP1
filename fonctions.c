@@ -26,7 +26,33 @@ int compare(int* a, int *b, int n){
 	return -1;	
 }
 void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
+    int indexTab1 = left , indexTab2 = mid;
+    int indextmp = left;
+    int nbModify=0;
 
+    while (indexTab1 < mid && indexTab2 <right)
+    {
+        if(tab[indexTab1]< tab[indexTab2])
+        {
+            tmp[indextmp] = tab[indexTab1];
+            indexTab1++;
+
+        }
+        else
+        {
+            tmp[indextmp] = tab[indexTab2];
+            indexTab2++;
+        }
+        nbModify++;
+
+        indextmp++;
+    }
+    int i;
+    for(i = 0; i < nbModify ; i++ )
+    {
+        tab[i +left] = tmp[left + i];
+        *cnt ++ ;
+    }
 }
 
 
