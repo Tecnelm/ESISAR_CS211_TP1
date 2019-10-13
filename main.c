@@ -22,7 +22,8 @@ int main(){
     compare(tab2,ref,n);
     printf("Insertion Sort tab3 : Operation Counter =  %d \t",insertionSort(tab3,n)); ////72 operation
     compare(tab3,ref,n);
-    printf("Insertion Sort ref : Operation Counter =  %d \t",insertionSort(ref,n)); //// 9 opération
+    printf("Insertion Sort ref : Operation Counter =  %d \t",insertionSort(ref,n)); //// 0 opération
+    compare(ref,ref,n);
     //////////////////////////////////////
 
     return 0;

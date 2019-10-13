@@ -51,7 +51,7 @@ int insertionSort(int* table,int size)
     {
         varToSort = *(table+index);
         index2 = 0;
-        while (varToSort > *(table+index2) && index2 <index) {
+        while (varToSort >= *(table+index2) && index2 <index) {
             index2++;
         }
         if(index2  < index)
