@@ -30,6 +30,11 @@ void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
     int indextmp = left;
     int nbModify=0;
 
+    /*
+     * decompose a main table with index right mid and left mid  is the 1st element of right table
+     * compare each element in a logic order, between the two tab , when one is higher it's placed in the temp table and is counter of the
+     * of this table is incremented
+     */
     while (indexTab1 < mid && indexTab2 <=right)
     {
         if(tab[indexTab1]< tab[indexTab2])
@@ -47,31 +52,31 @@ void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
 
         indextmp++;
     }
-    int i;
+    /*
+     * if it have element in the right table  copy them at the end of the tmp table
+     */
     while (indexTab1 < mid)
     {
         tmp[indextmp++] = tab[indexTab1++];
         nbModify++;
     }
 
-    for(i = 0; i < nbModify ; i++ )
+    //copy the tmp table into the main table
+    for(indextmp = left; indextmp  < nbModify+left ; indextmp ++ )
     {
-        tab[i +left] = tmp[left + i];
-        *cnt ++ ;
+        tab[indextmp] = tmp[indextmp ];
+        (*cnt) ++ ;
     }
 }
-void mergeSort (int* tab,int* tmp, int* cnt, int left, int right){
-    int midt;
 
+void mergeSort (int* tab,int* tmp, int left, int right,int* cnt){
+    int mid;
+    if(abs(left - right) >0) { // do the condition if the table isn't a single tab
+        mid = (left+right)/2;
 
-    if((right-left+1) >2)
-    {
-        midt = ((left+right)/2+1);
+        mergeSort(tab, tmp, left, mid, cnt);
+        mergeSort(tab, tmp, mid+1, right, cnt);
 
-        mergeSort(tab,tmp,cnt,left,midt -1);
-        mergeSort(tab,tmp,cnt,midt,right);
-
-        merge(tab,tmp,left,midt,right,cnt);
-
+        merge(tab, tmp, left, mid+1, right, cnt);
     }
 }
