@@ -8,24 +8,18 @@ int main(){
 	int tab3[] = {3,6,6,7,8,10,14,15,17,19,81,21,23,25,26,28,28,28,32,32,34,35,38,38,39,43,44,46,48,49,50,58,59,62,64,65,69,71,75,79,79,79,20,84,86,89,92,93,97,99};
 
 
-	int a [] = {
-	        1,3,5,2,4,6,9,10,12
-	};
-
     int n = sizeof(ref)/sizeof(int);
-    n = 9;
     int* tmp;
     tmp =malloc(sizeof(int)*n);
     if( tmp== NULL)
         return  1;
+int b;
 
-    merge(a,tmp,0,3,4,0);
+    mergeSort(tab1,tmp,&b,0,n-1);
 
-   // mergeSort(tab1,tmp,&a,0,n);
+compare(tab1,ref,n);
 
-
-
-	affiche(a, n);
+	affiche(tab1, n);
 	free(tmp);
 
 

@@ -64,9 +64,9 @@ void mergeSort (int* tab,int* tmp, int* cnt, int left, int right){
     int midt;
 
 
-    if((right-left) >2)
+    if((right-left+1) >2)
     {
-        midt = ((left+right)/2);
+        midt = ((left+right)/2+1);
 
         mergeSort(tab,tmp,cnt,left,midt -1);
         mergeSort(tab,tmp,cnt,midt,right);
