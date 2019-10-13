@@ -8,20 +8,24 @@ int main(){
 	int tab3[] = {3,6,6,7,8,10,14,15,17,19,81,21,23,25,26,28,28,28,32,32,34,35,38,38,39,43,44,46,48,49,50,58,59,62,64,65,69,71,75,79,79,79,20,84,86,89,92,93,97,99};
 	
 	int n = sizeof(ref)/sizeof(int);
-    printf("%d\n",insertionSort(tab1,n));
-    insertionSort(tab3,n);
-    insertionSort(tab2,n);
-	affiche(tab1, n);
 
-	compare(tab1,ref,n);
-    compare(tab3,ref,n);
+
+    ///////////Insertion Sort////////////
+    /**
+     * La complexite de cet algorithme est O(n²) dans le pire des cas, et o() dans le meilleur des cas
+     *
+     * La complexite spacial  est de n, l'algorithme est stable en taille
+     */
+    printf("Insertion Sort tab1 : Operation Counter =  %d \t",insertionSort(tab1,n)); //// 691 operation
+    compare(tab1,ref,n);
+    printf("Insertion Sort tab2 : Operation Counter =  %d \t",insertionSort(tab2,n));////1225 operation
     compare(tab2,ref,n);
+    printf("Insertion Sort tab3 : Operation Counter =  %d \t",insertionSort(tab3,n)); ////72 operation
+    compare(tab3,ref,n);
+    printf("Insertion Sort ref : Operation Counter =  %d \t",insertionSort(ref,n)); //// 9 opération
+    //////////////////////////////////////
 
-
-
-	return 0;
-
-
+    return 0;
 }
 
 
