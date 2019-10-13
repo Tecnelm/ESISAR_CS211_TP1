@@ -48,6 +48,12 @@ void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
         indextmp++;
     }
     int i;
+    while (indexTab1 < mid)
+    {
+        tmp[indextmp++] = tab[indexTab1++];
+        nbModify++;
+    }
+
     for(i = 0; i < nbModify ; i++ )
     {
         tab[i +left] = tmp[left + i];
