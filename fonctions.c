@@ -46,8 +46,10 @@ int bulle(int *tab, int n) {
             if (tab[i] > tab[i + 1]) {
                 swap(&tab[i], &tab[i + 1]);
                 trie = 1;
-                o++;
+
             }
+            o++;
+
         }
         if(!trie) //Si pas de swap pendant un tour de boucle alors le tableau est trié.
             return(o);
