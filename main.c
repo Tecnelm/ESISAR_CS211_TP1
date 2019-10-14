@@ -40,8 +40,35 @@ int main(){
     printf("Insertion Sort ref : Operation Counter =  %d \t",insertionSort(ref,n)); //// 0 opération
     compare(ref,ref,n);
     //////////////////////////////////////
+    ///////////////////////////mergeSort///////////////////
+    /**
+     * la complexité temporel de cet algorithme est en log10(n) O(lg(n))
+     * On remarque que le nombre d'opération  varie peux en fonction des different tableau au reste au alentour de 5n
+     * la compléxité en taille de cet algorithme est de 2n
+     */
+    int *tmp;
+    tmp =malloc(sizeof(ref));
+    if( tmp== NULL)
+        return  1;
+    mergeSort(tab1,tmp,0,n-1,&conter);
+    printf("MergeSort tab1 : counter = %d \t ",conter); //////counter = 259
+    compare(tab1,ref,n);
+    conter = 0;
+    mergeSort(tab2,tmp,0,n-1,&conter);
+    printf("MergeSort tab2 : counter = %d \t ",conter); ////counter = 286
+    compare(tab2,ref,n);
+    conter = 0;
+    mergeSort(tab3,tmp,0,n-1,&conter);
+    printf("MergeSort tab3 : counter = %d \t ",conter);////counter = 196
+    compare(tab3,ref,n);
+    conter = 0;
+    printf("MergeSort ref : conter = %d \t ",conter);////counter = 0
+    compare(ref,ref,n);
+    /////////////////////////////////////
+    free(tmp);
+	return 0;
 
-    return 0;
+
 }
 
 
