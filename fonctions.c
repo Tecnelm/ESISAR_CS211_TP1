@@ -130,7 +130,7 @@ void merge(int *tab, int *tmp, int left, int mid, int right, int *cnt) {
      * compare each element in a logic order, between the two tab , when one is higher it's placed in the temp table and is counter of the
      * of this table is incremented
      */
-    if (tab[mid - 1] < tab[mid]) {
+    if (tab[mid - 1] < tab[mid]) { // compare the last element of the first table and the first of the second table , as they are already sort we can abort the merge turn
         (*cnt)++;
         return;
     }
