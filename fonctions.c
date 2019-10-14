@@ -3,29 +3,26 @@
 #include "fonctions.h"
 
 
-
-
-void affiche(int* a, int n){
-	int i;
-	for (i = 0 ; i < n ; i++){
-		printf("%d ", a[i]);
-	}
-	printf("\n\n");
+void affiche(int *a, int n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n\n");
 }
 
 
-int compare(int* a, int *b, int n){
-	int i;
-	for(i=0; i < n ; i++){
-		if (a[i] != b[i]){
-			printf("Comparison FAILED at index %d\n\n", i);
-			return i;
-		}
-	}
-	printf("Comparison OK\n\n");
-	return -1;	
+int compare(int *a, int *b, int n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        if (a[i] != b[i]) {
+            printf("Comparison FAILED at index %d\n\n", i);
+            return i;
+        }
+    }
+    printf("Comparison OK\n\n");
+    return -1;
 }
-
 
 
 void swap(int *a, int *b) {
@@ -55,42 +52,33 @@ int bulle(int *tab, int n) {
     }
     return (o);
 }
-/**
- *
- * on décompose la tableau en deux sous tableau la partie trié et la non trier
- * on prend le premier élément du tableau non trié puis on parcours le tableau trié pour le mettre à la bonne position
- * @param table  : tableau de valeur a trier
- * @param size  : taille du tableai
- * @return      : nombre d'opération réalisé
- */
-int insertionSort(int* table,int size)
+int asc(int a ,int b)
 {
-
-    int index;
-    int index2;
-    int varToSort;
-    int nbaction =0;
-    for (index = 1 ; index < size ; index++ )
-    {
-        varToSort = *(table+index);
-        index2 = 0;
-        while (varToSort >= *(table+index2) && index2 <index) {
-            index2++;
-        }
-        if(index2  < index)
-        {
-            for(index2; index2 < index ; index2 ++)
-            {
-                swap(table+index2 , table+index);
-                nbaction++;
+    return a>b;
+}
+int desc(int a ,int b)
+{
+    return b >a;
+}
+int custom_bulle(int *tab, int n,int (*fonction)(int,int)) {
+    int o = 0, i, l;
+    int trie =0;
+    l = n;
+    while (l > 0) {
+        for (i = 0; i < l-1; i++) {
+            if (fonction(tab[i] , tab[i + 1])) {
+                swap(&tab[i], &tab[i + 1]);
+                trie = 1;
+                o++;
             }
         }
+        if(!trie) //Si pas de swap pendant un tour de boucle alors le tableau est trié.
+            return(o);
+        trie = 0;
+        l--;
     }
-    return nbaction;
+    return (o);
 }
-
-
-
 
 void mergeSort (int* tab,int* tmp, int left, int right,int* cnt){
     int mid;
