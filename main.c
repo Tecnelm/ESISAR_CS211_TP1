@@ -69,6 +69,7 @@ int main(){
     printf("MergeSort tab3 : counter = %d \t ",conter);////counter = 196
     compare(mergetab3,ref,n);
     conter = 0;
+    mergeSort(ref,tmp,0,n-1,&conter);
     printf("MergeSort ref : conter = %d \t ",conter);////counter = 0
     compare(ref,ref,n);
     /////////////////////////////////////

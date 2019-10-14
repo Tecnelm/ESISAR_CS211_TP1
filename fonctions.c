@@ -32,6 +32,7 @@ void swap(int *a, int *b) {
     *a = *b;
     *b = c;
 }
+
 /**
  *
  * on décompose la tableau en deux sous tableau la partie trié et la non trier
@@ -40,40 +41,32 @@ void swap(int *a, int *b) {
  * @param size  : taille du tableai
  * @return      : nombre d'opération réalisé
  */
-int insertionSort(int* table,int size)
-{
+int insertionSort(int *table, int size) {
 
     int index;
     int index2;
     int varToSort;
-    int nbaction =0;
-    for (index = 1 ; index < size ; index++ )
-    {
-        varToSort = *(table+index);
-        index2 = 0;
-        while (varToSort >= *(table+index2) && index2 <index) {
-            index2++;
+    int nbaction = 0;
+    for (index = 1; index < size; index++) {
+        varToSort = *(table + index);
+        index2 = index;
+        nbaction++;
+        while (index2 > 0 && varToSort < table[index2 - 1]) {
+            table[index2] = table[index2 - 1];
+            index2--;
             nbaction++;
         }
-        if(index2  < index)
-        {
-            for(index2; index2 < index ; index2 ++)
-            {
-                swap(table+index2 , table+index);
-
-            }
-            nbaction++;
-        }
+        table[index2] = varToSort;
     }
     return nbaction;
 }
 
 int bulle(int *tab, int n) {
     int o = 0, i, l;
-    int trie =0;
+    int trie = 0;
     l = n;
     while (l > 0) {
-        for (i = 0; i < l-1; i++) {
+        for (i = 0; i < l - 1; i++) {
             if (tab[i] > tab[i + 1]) {
                 swap(&tab[i], &tab[i + 1]);
                 trie = 1;
@@ -81,69 +74,71 @@ int bulle(int *tab, int n) {
             }
             o++;
         }
-        if(!trie) //Si pas de swap pendant un tour de boucle alors le tableau est trié.
-            return(o);
+        if (!trie) //Si pas de swap pendant un tour de boucle alors le tableau est trié.
+            return (o);
         trie = 0;
         l--;
     }
     return (o);
 }
-int asc(int a ,int b)
-{
-    return a>b;
+
+int asc(int a, int b) {
+    return a > b;
 }
-int desc(int a ,int b)
-{
-    return b >a;
+
+int desc(int a, int b) {
+    return b > a;
 }
-int custom_bulle(int *tab, int n,int (*fonction)(int,int)) {
+
+int custom_bulle(int *tab, int n, int (*fonction)(int, int)) {
     int o = 0, i, l;
-    int trie =0;
+    int trie = 0;
     l = n;
     while (l > 0) {
-        for (i = 0; i < l-1; i++) {
-            if (fonction(tab[i] , tab[i + 1])) {
+        for (i = 0; i < l - 1; i++) {
+            if (fonction(tab[i], tab[i + 1])) {
                 swap(&tab[i], &tab[i + 1]);
                 trie = 1;
             }
             o++;
         }
-        if(!trie) //Si pas de swap pendant un tour de boucle alors le tableau est trié.
-            return(o);
+        if (!trie) //Si pas de swap pendant un tour de boucle alors le tableau est trié.
+            return (o);
         trie = 0;
         l--;
     }
     return (o);
 }
 
-void mergeSort (int* tab,int* tmp, int left, int right,int* cnt){
+void mergeSort(int *tab, int *tmp, int left, int right, int *cnt) {
     int mid;
-    if(abs(left - right) >0) { // do the condition if the table isn't a single tab
-        mid = (left+right)/2;
+    if (abs(left - right) > 0) { // do the condition if the table isn't a single tab
+        mid = (left + right) / 2;
         mergeSort(tab, tmp, left, mid, cnt);
-        mergeSort(tab, tmp, mid+1, right, cnt);
+        mergeSort(tab, tmp, mid + 1, right, cnt);
 
-        merge(tab, tmp, left, mid+1, right, cnt);
+        merge(tab, tmp, left, mid + 1, right, cnt);
     }
 }
-void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
-    int indexTab1 = left , indexTab2 = mid;
+
+void merge(int *tab, int *tmp, int left, int mid, int right, int *cnt) {
+    int indexTab1 = left, indexTab2 = mid;
     int indextmp = left;
-    int nbModify=0;
+    int nbModify = 0;
     /*
      * decompose a main table with index right mid and left mid  is the 1st element of right table
      * compare each element in a logic order, between the two tab , when one is higher it's placed in the temp table and is counter of the
      * of this table is incremented
      */
-    while (indexTab1 < mid && indexTab2 <= right)
-    {
-        if(tab[indexTab1] < tab[indexTab2])
-        {
+    if (tab[mid - 1] < tab[mid]) {
+        (*cnt)++;
+        return;
+    }
+    while (indexTab1 < mid && indexTab2 <= right) {
+        if (tab[indexTab1] < tab[indexTab2]) {
             tmp[indextmp] = tab[indexTab1];
             indexTab1++;
-        }
-        else
-        {
+        } else {
             tmp[indextmp] = tab[indexTab2];
             indexTab2++;
         }
@@ -154,12 +149,13 @@ void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
     while (indexTab1 < mid)//  if it have element in the right table  copy them at the end of the tmp table
     {
         tmp[indextmp++] = tab[indexTab1++];
+        (*cnt)++;
         nbModify++;
     }
+
     //copy the tmp table into the main table
-    for(indextmp = left; indextmp  < nbModify+left ; indextmp ++ )
-    {
-        tab[indextmp] = tmp[indextmp ];
-        (*cnt) ++ ;
+    for (indextmp = left; indextmp < nbModify + left; indextmp++) {
+        tab[indextmp] = tmp[indextmp];
+        (*cnt)++;
     }
 }
