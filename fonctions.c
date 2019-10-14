@@ -51,7 +51,7 @@ int insertionSort(int *table, int size) {
         varToSort = *(table + index);
         index2 = index;
         nbaction++;
-        while (index2 > 0 && varToSort < table[index2 - 1]) {
+        while (index2 > 0 && varToSort < table[index2 - 1]) {// programme stable grâce à l'inégalité stricte.
             table[index2] = table[index2 - 1];
             index2--;
             nbaction++;
@@ -67,7 +67,7 @@ int bulle(int *tab, int n) {
     l = n;
     while (l > 0) {
         for (i = 0; i < l - 1; i++) {
-            if (tab[i] > tab[i + 1]) {
+            if (tab[i] > tab[i + 1]) { // programme stable grâce à l'inégalité stricte.
                 swap(&tab[i], &tab[i + 1]);
                 trie = 1;
 

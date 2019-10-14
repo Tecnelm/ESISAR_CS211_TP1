@@ -1,0 +1,31 @@
+Partie 1 : BubbleSort
+
+Q1 : Voir le programme.
+Q2 : Voir le programme.
+Q3 : Voir le programme.
+Q4 : Voir le programme.
+Q5 : Executer le programme.
+Q6 : Le pire cas du tri à bulle correspond au tab2 (tableau inversé) avec une complexité de o(n²), le meilleur des cas est le tab3 (seulement deux valeur inversé) car le programme s'arrête quand le tableau est trié avec une compléxité de o(n). 
+Q7 : La complexité spatial et de o(n) sur le programme car on crée un seul tableau (voir ligne 70 de fonction.c) 
+
+Partie 2 : InsertionSort
+
+Q1 : Voir le programme.
+Q2 : Executer le programme.
+Q3 : Le pire cas du tri par insertion correspond au tab2 (tableau inversé) avec une complexité de o(n²), le meilleur des cas est le tab3 (seulement deux valeur inversé) car le programme s'arrête quand le tableau est trié avec une compléxité de o(n). 
+Q4 : La complexité spatial et de o(n) sur le programme car on crée un seul tableau (voir ligne 54 de fonction.c) 
+
+Partie 3 : MergeSort
+
+Q1 : si on déclare le tableau de cette manière int* tmp = tab ; on ne crée pas un nouveau tableau mais un autre accès à ce tableau
+ int tmp[n]; dans ce cas il est necessaire que n soit connu à la compilation ce qui n'est pas le cas.
+Q2 : On utilise la fonction malloc pour faire une allocation dynamique.
+Q3 : Voir le programme.
+Q4 : Voir le programme.
+Q5 : Pour le tri par fusion on a une moins grande disparité dans les différents test que les autres tris. Par exemple le pire des cas du tri fusion fait beaucoup moins de comparaison que les autres tris.
+Q6 : Sur tout les cas le tri fusion a une complexité de o(n*log(n)) on le remarque avec les observations.
+Q7 : La complexité spatial et de o(2n) sur le programme car on crée deux tableau donc a la fin on a une complexité de o(n) comme les autres tris.
+
+CONCLUSION : L'algorithme MergeSort ce trouve être le plus efficace pour les tris avec beaucoup de valeur et totalement melangé. Pour les tris avec peu de valeur les autres programme ce retrouve plus efficace.
+
+Bonus : voir le programme 
