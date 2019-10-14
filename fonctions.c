@@ -49,18 +49,15 @@ void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
             indexTab2++;
         }
         nbModify++;
-
         indextmp++;
     }
-    /*
-     * if it have element in the right table  copy them at the end of the tmp table
-     */
-    while (indexTab1 < mid)
+
+
+    while (indexTab1 < mid)//  if it have element in the right table  copy them at the end of the tmp table
     {
         tmp[indextmp++] = tab[indexTab1++];
         nbModify++;
     }
-
     //copy the tmp table into the main table
     for(indextmp = left; indextmp  < nbModify+left ; indextmp ++ )
     {
@@ -73,7 +70,6 @@ void mergeSort (int* tab,int* tmp, int left, int right,int* cnt){
     int mid;
     if(abs(left - right) >0) { // do the condition if the table isn't a single tab
         mid = (left+right)/2;
-
         mergeSort(tab, tmp, left, mid, cnt);
         mergeSort(tab, tmp, mid+1, right, cnt);
 
