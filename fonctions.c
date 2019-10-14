@@ -156,6 +156,6 @@ void merge(int *tab, int *tmp, int left, int mid, int right, int *cnt) {
     //copy the tmp table into the main table
     for (indextmp = left; indextmp < nbModify + left; indextmp++) {
         tab[indextmp] = tmp[indextmp];
-        (*cnt)++;
+
     }
 }
