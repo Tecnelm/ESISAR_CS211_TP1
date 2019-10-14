@@ -40,7 +40,6 @@ int c = *a;
  * @param size  : taille du tableai
  * @return      : nombre d'opération réalisé
  */
-
 int insertionSort(int* table,int size)
 {
 
@@ -51,6 +50,7 @@ int insertionSort(int* table,int size)
     for (index = 1 ; index < size ; index++ ) {
         varToSort = *(table + index);
         index2 = index;
+        nbaction++;
         while(index2 >0 && varToSort < table[index2 -1])
         {
             table[index2] = table[index2-1];
