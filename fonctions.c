@@ -53,14 +53,16 @@ int insertionSort(int* table,int size)
         index2 = 0;
         while (varToSort >= *(table+index2) && index2 <index) {
             index2++;
+            nbaction++;
         }
         if(index2  < index)
         {
             for(index2; index2 < index ; index2 ++)
             {
                 swap(table+index2 , table+index);
-                nbaction++;
+
             }
+            nbaction++;
         }
     }
     return nbaction;
@@ -75,8 +77,9 @@ int bulle(int *tab, int n) {
             if (tab[i] > tab[i + 1]) {
                 swap(&tab[i], &tab[i + 1]);
                 trie = 1;
-                o++;
+
             }
+            o++;
         }
         if(!trie) //Si pas de swap pendant un tour de boucle alors le tableau est trié.
             return(o);
@@ -102,8 +105,8 @@ int custom_bulle(int *tab, int n,int (*fonction)(int,int)) {
             if (fonction(tab[i] , tab[i + 1])) {
                 swap(&tab[i], &tab[i + 1]);
                 trie = 1;
-                o++;
             }
+            o++;
         }
         if(!trie) //Si pas de swap pendant un tour de boucle alors le tableau est trié.
             return(o);
@@ -138,13 +141,13 @@ void merge (int* tab, int* tmp, int left, int mid, int right, int* cnt){
         {
             tmp[indextmp] = tab[indexTab1];
             indexTab1++;
-
         }
         else
         {
             tmp[indextmp] = tab[indexTab2];
             indexTab2++;
         }
+        (*cnt)++;
         nbModify++;
         indextmp++;
     }
