@@ -37,13 +37,13 @@ void swap(int *a, int *b) {
 
 }
 
-int bulle(int *tab, int n) {
+int custom_bulle(int *tab, int n,int (*fonction)(int,int)) {
     int o = 0, i, l;
     int trie =0;
     l = n;
     while (l > 0) {
         for (i = 0; i < l-1; i++) {
-            if (tab[i] > tab[i + 1]) {
+            if (fonction(tab[i] , tab[i + 1])) {
                 swap(&tab[i], &tab[i + 1]);
                 trie = 1;
                 o++;
@@ -55,6 +55,14 @@ int bulle(int *tab, int n) {
         l--;
     }
     return (o);
+}
+int asc(int a ,int b)
+{
+    return a>b;
+}
+int desc(int a ,int b)
+{
+    return b >a;
 }
 
 

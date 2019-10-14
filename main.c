@@ -15,13 +15,13 @@ int main(){
      * L'algorithme est  adaptatif ?
      *L'algorithme a une complexité en place de n cet algorithme est stable
      */
-    printf("Bubble Sort tab 1: operation counter = %d \t",bulle(tab1,n));///// O(n) 682 operation
+    printf("Bubble Sort tab 1: operation counter = %d \t",custom_bulle(tab1,n,&asc));///// O(n) 682 operation
     compare(ref,tab1,n);
-    printf("Bubble Sort tab 2: operation counter = %d \t",bulle(tab2,n));////O(n²) 1216 operation
+    printf("Bubble Sort tab 2: operation counter = %d \t",custom_bulle(tab2,n,&asc));////O(n²) 1216 operation
     compare(ref,tab2,n);
-    printf("Bubble Sort tab 3: operation counter = %d \t",bulle(tab3,n));//////O(n) 63 opération
+    printf("Bubble Sort tab 3: operation counter = %d \t",custom_bulle(tab3,n,&asc));//////O(n) 63 opération
     compare(ref,tab3,n);
-    printf("Bubble Sort tab ref: operation counter = %d \t",bulle(ref,n)); //// 0 operation
+    printf("Bubble Sort tab ref: operation counter = %d \t",custom_bulle(ref,n,&asc)); //// 0 operation
     compare(ref,ref,n);
     /////////////////////////////
 
