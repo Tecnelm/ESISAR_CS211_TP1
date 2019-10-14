@@ -8,13 +8,7 @@ int main(){
 	int tab3[] = {3,6,6,7,8,10,14,15,17,19,81,21,23,25,26,28,28,28,32,32,34,35,38,38,39,43,44,46,48,49,50,58,59,62,64,65,69,71,75,79,79,79,20,84,86,89,92,93,97,99};
 	
 	int n = sizeof(ref)/sizeof(int);
-	///////Bubble Sort///////////////////
-    /**
-     * La complexité temporel global de cet algorithme est O(n²)
-     * dans le pire des cas la compléxité est n² et dans le meilleurs des cas en O
-     * L'algorithme est  adaptatif ?
-     *L'algorithme a une complexité en place de n cet algorithme est stable
-     */
+	///////Bubble Sort with fonction pointer asc and desc///////////////////
     printf("Bubble Sort tab 1: operation counter = %d \t",custom_bulle(tab1,n,&asc));///// O(n) 682 operation
     compare(ref,tab1,n);
     printf("Bubble Sort tab 2: operation counter = %d \t",custom_bulle(tab2,n,&asc));////O(n²) 1216 operation
